@@ -1,0 +1,79 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    background-color: #fff9ea;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid #ffe092;
+}
+
+.logo {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.buscador {
+    flex-basis: 50%;
+    text-align: center;
+    padding-left: 20px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+#buscadorInput {
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    width: 90%;
+    outline: none;
+}
+
+input::placeholder {
+    color: black;
+    font-size: 15px;
+}
+
+input {
+    color: black;
+}
+
+.buscador label {
+    height: 20px;
+}
+
+.menu {
+    flex-basis: 30%;
+    text-align: right;
+    padding-right: 100px;
+    
+}
+
+.menu a {
+    padding: 40px;
+}
+
+.segundoMenu {
+    padding-bottom: 15px;
+    margin-top: 93px;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    background-color: #fff9ea;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    border-bottom: 2px solid #ffe092;
+}
+
+.segundoMenu a {
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+    font-size: 18px;
+}

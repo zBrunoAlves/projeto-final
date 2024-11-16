@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="styles/styles.carrinho.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <h1>Carrinho de compras do <b>Story Polaroid</b></h1>
+    </header>
+    <main>
+        <section class="page-title">
+            <h2>Seu Carrinho</h2>
+        </section>
+        <div class="content">
+            <section class="cart">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                            <th>Total</th>
+                            <th>Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itens-carrinho">
+                        <!-- Produtos adicionados ao carrinho serão exibidos aqui via JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+            <aside class="summary">
+                <div class="box">
+                    <header>Resumo da compra</header>
+                    <div class="info">
+                        <div>
+                            <span>Sub-total</span><span id="subtotal">R$ 0,00</span>
+                        </div>
+                        <div>
+                            <span>Frete</span><span>Gratuito</span>
+                        </div>
+                        <div>
+                            <button>
+                                Adicionar cupom de desconto
+                                <i class="bx bx-right-arrow-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <footer>
+                        <span>Total</span>
+                        <span id="total">R$ 0,00</span>
+                    </footer>
+                </div>
+                <button id="finalizar-pedido">Finalizar Compra</button>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        const produtos = [{
+            nome: "Calendário 6 meses",
+            preco: 20.0,
+            quantidade: 1,
+            imagem: "images/Calendario.jfif",
+        }, {
+            nome: "Calendário 12 meses",
+            preco: 46.5,
+            quantidade: 1,
+            imagem: "images/calendario 1.jpg",
+        }, {
+            nome: "Calendário individual",
+            preco: 5.0,
+            quantidade: 1,
+            imagem: "images/calendario 2.jpg",
+        }, {
+            nome: "Calendário 3 meses",
+            preco: 15.0,
+            quantidade: 1,
+            imagem: "images/calendario 4.jpg",
+        }, {
+            nome: "Calendário 9 meses",
+            preco: 35.0,
+            quantidade: 1,
+            imagem: "images/calendario 5.jpg",
+        }, {
+            nome: "Calendário 2 meses",
+            preco: 12.0,
+            quantidade: 1,
+            imagem: "images/Calendario.jfif",
+        }, ];
+
+        function exibirCarrinho() {
+            const carrinhoDiv = document.getElementById("itens-carrinho");
+            carrinhoDiv.innerHTML = "";
+
+            let total = 0;
+            produtos.forEach((produto) => {
+                const itemRow = document.createElement("tr");
+
+                itemRow.innerHTML = `
+                    <td>
+                        <div class="product">
+                            <img src="${produto.imagem}" alt="${produto.nome}" style="width: 75px; height: 100px;" />
+                            <div class="info">
+                                <div class="name">${produto.nome}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>R$ ${produto.preco.toFixed(2)}</td>
+                    <td>
+                        <div class="qty">
+                            <button onclick="alterarQuantidade('${produto.nome}', -1)"><i class="bx bx-minus"></i></button>
+                            <span>${produto.quantidade}</span>
+                            <button onclick="alterarQuantidade('${produto.nome}', 1)"><i class="bx bx-plus"></i></button>
+                        </div>
+                    </td>
+                    <td>R$ ${(produto.preco * produto.quantidade).toFixed(2)}</td>
+                    <td>
+                        <button class="remove" onclick="removerProduto('${produto.nome}')"><i class="bx bx-x"></i></button>
+                    </td>
+                `;
+
+                carrinhoDiv.appendChild(itemRow);
+                total += produto.preco * produto.quantidade;
+            });
+
+            document.getElementById("subtotal").innerText = `R$ ${total.toFixed(2)}`;
+            document.getElementById("total").innerText = `R$ ${total.toFixed(2)}`;
+        }
+
+        function alterarQuantidade(nomeProduto, alteracao) {
+            const produto = produtos.find((produto) => produto.nome === nomeProduto);
+            if (produto) {
+                produto.quantidade = Math.max(1, produto.quantidade + alteracao);
+                exibirCarrinho();
+            }
+        }
+
+        function removerProduto(nomeProduto) {
+            const index = produtos.findIndex((produto) => produto.nome === nomeProduto);
+            if (index !== -1) {
+                produtos.splice(index, 1);
+                exibirCarrinho();
+            }
+        }
+
+        document.getElementById("finalizar-pedido").addEventListener("click", function() {
+            const totalPedido = produtos
+                .reduce((total, produto) => total + produto.preco * produto.quantidade, 0)
+                .toFixed(2);
+
+            let mensagem = `Olá, seu pedido esta sendo separado, obrigado pela escolha:\n\n`;
+            produtos.forEach((produto) => {
+                mensagem += `- ${produto.nome} (Quantidade: ${produto.quantidade}) - R$ ${(produto.preco * produto.quantidade).toFixed(2)}\n`;
+            });
+            mensagem += `\nTotal: R$ ${totalPedido}`;
+
+            const mensagemCodificada = encodeURIComponent(mensagem);
+            const numeroWhatsApp = "5521999999999";
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensagemCodificada}`;
+
+            window.open(urlWhatsApp, "_blank");
+
+            produtos.length = 0;
+            exibirCarrinho();
+        });
+
+        exibirCarrinho();
+    </script>
+
+    
+</body>
+
+</html>

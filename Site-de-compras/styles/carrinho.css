@@ -1,0 +1,7 @@
+/* Adicione isso ao arquivo CSS existente */
+.nav-item a.active, 
+.categorias ul li a.active {
+    color: #ff6600; /* Altere para a cor desejada */
+    font-weight: bold; /* Torna o texto em negrito */
+    text-decoration: underline; /* Adiciona sublinhado */
+}
