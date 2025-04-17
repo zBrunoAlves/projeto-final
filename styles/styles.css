@@ -42,6 +42,7 @@ section {
     padding: 28px 8%;
 }
 
+.btn-info,
 .btn-default {
     border: none;
     display: flex;
@@ -56,6 +57,7 @@ section {
     transition: background-color .3s ease, transform 0.3s ease;
 }
 
+.btn-info:hover,
 .btn-default:hover {
     background-color: var(--color-primary-3);
     transform: translateY(-5px);
