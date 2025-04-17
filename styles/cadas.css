@@ -54,7 +54,8 @@ body {
   border-radius: 8px;
   padding: 8px;
   border: 2px solid #dfdfdf;
-  transition: border-color 0.3s ease; /* Transição suave para borda */
+  transition: border-color 0.3s ease;
+  /* Transição suave para borda */
 }
 
 .form-content a {
@@ -74,7 +75,8 @@ body {
   font-size: 16px;
   cursor: pointer;
   margin-top: 14px;
-  transition: background-color 0.3s ease; /* Transição suave para fundo do botão */
+  transition: background-color 0.3s ease;
+  /* Transição suave para fundo do botão */
 }
 
 /* Estilo para campos com erro */
@@ -89,21 +91,24 @@ body {
 
 /* Foco nos campos de entrada */
 .form-content input:focus {
-  border-color: #fcba05; /* Borda dourada ao focar no campo */
-  outline: none; /* Remove o outline padrão */
+  border-color: #fcba05;
+  /* Borda dourada ao focar no campo */
+  outline: none;
+  /* Remove o outline padrão */
 }
 
 /* Estilos responsivos para telas pequenas */
 @media screen and (max-width: 600px) {
   .container {
-      margin: 10px;
+    margin: 10px;
   }
 
   .header {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   .form-content input {
-      padding: 10px; /* Aumentando o padding em telas pequenas */
+    padding: 10px;
+    /* Aumentando o padding em telas pequenas */
   }
 }

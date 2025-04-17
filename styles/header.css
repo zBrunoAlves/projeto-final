@@ -42,7 +42,8 @@ nav li a {
     color: black;
     text-decoration: none;
     padding: 15px;
-    transition: background-color 0.3s ease; /* Transição suave no hover */
+    transition: background-color 0.3s ease;
+    /* Transição suave no hover */
 }
 
 nav li a:hover {
@@ -90,6 +91,7 @@ nav li a:hover {
 }
 
 @media screen and (max-width: 1170px) {
+
     /* Escondendo links e botões no mobile */
     #nav_list,
     #navbar .btn-default {
@@ -108,7 +110,8 @@ nav li a:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
-        transition: all 0.3s ease; /* Transição suave */
+        transition: all 0.3s ease;
+        /* Transição suave */
     }
 
     #mobile_nav_list {
@@ -125,6 +128,7 @@ nav li a:hover {
 
     /* Melhorando a responsividade do logo */
     #nav_logo1 {
-        font-size: 20px; /* Ajuste do tamanho do logo */
+        font-size: 20px;
+        /* Ajuste do tamanho do logo */
     }
 }
