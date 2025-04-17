@@ -1,0 +1,28 @@
+footer {
+    background-color: var(--color-primary-2);
+}
+
+#footer_items {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8% 24px 8%;
+    align-items: center;
+    transition: all 0.3s ease; /* Adicionando transição suave */
+}
+
+#copyright {
+    color: var(--color-neutral-1);
+    font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+    #footer_items {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 5% 24px 5%; /* Ajustando o padding para telas menores */
+    }
+
+    #copyright {
+        text-align: center; /* Alinhando o texto ao centro no mobile */
+    }
+}
