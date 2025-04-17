@@ -50,7 +50,7 @@
     padding-right: 150px;
     float: left;
     display: flex;
-    position: static !important;
+    position: static;
 }
 
 /* Ajustes no menu */
