@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro - Story Polaroid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles/cadas.css" />
+</head>
+
+<body>
+    <div class="container">
+        <section class="header">
+            <h2>Criar Nova Conta</h2>
+        </section>
+<form id="form" class="form" action="../php/cadastro.php" method="POST" novalidate>
+            <div class="form-content">
+                <label for="nome">Nome do usuário</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome do usuário" required />
+                <span class="error-message" aria-live="polite"></span>
+            </div>
+            <div class="form-content">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required />
+                <span class="error-message" aria-live="polite"></span>
+            </div>
+            <div class="form-content">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+                <span class="error-message" aria-live="polite"></span>
+            </div>
+            <div class="form-content">
+                <label for="senha-confirmacao">Confirmação de senha</label>
+                <input type="password" id="senha-confirmacao" name="senha_confirmacao"
+                    placeholder="Digite sua senha novamente" required />
+                <span class="error-message" aria-live="polite"></span>
+            </div>
+            <div class="form-content">
+                <label for="telefone">Telefone</label>
+                <input type="text" id="telefone" name="telefone" placeholder="Digite seu telefone" required />
+                <span class="error-message" aria-live="polite"></span>
+            </div>
+            <div class="form-content">
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" required />
+                <span class="error-message" aria-live="polite"></span>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="javascript/cadastro.js"></script>
+
+</body>
+
+</html>
